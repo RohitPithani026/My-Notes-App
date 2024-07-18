@@ -37,7 +37,7 @@
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
   <script>
-    var serviceWorkerVersion = null;
+    var serviceWorkerVersion = '{{flutter_service_worker_version}}';
     var scriptLoaded = false;
     function loadMainDartJs() {
       if (scriptLoaded) {
@@ -68,7 +68,7 @@
               });
             }
             if (!reg.active && (reg.installing || reg.waiting)) {
-              // No active web worker and we have installed or are installing
+              // No active web worker, and we have installed or are installing
               // one for the first time. Simply wait for it to activate.
               waitForActivation(reg.installing || reg.waiting);
             } else if (!reg.active.scriptURL.endsWith(serviceWorkerVersion)) {
